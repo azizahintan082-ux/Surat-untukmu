@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Surat Untukmu 💗</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(
+                135deg,
+                #ffe1ec,
+                #fff7f9,
+                #fbd0df
+            );
+            min-height: 100vh;
+            color: #803751;
+            overflow-x: hidden;
+        }
+
+        .halaman {
+            min-height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .halaman.aktif {
+            display: flex;
+            animation: muncul 0.8s ease;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.88);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 28px;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid white;
+            box-shadow: 0 15px 45px rgba(177, 72, 111, 0.15);
+        }
+
+        .container.lebar {
+            max-width: 800px;
+        }
+
+        .label {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #c45b80;
+            text-transform: uppercase;
+        }
+
+        .hati {
+            font-size: 65px;
+            margin: 20px 0;
+            animation: detak 1.4s infinite;
+        }
+
+        h1 {
+            font-size: clamp(32px, 7vw, 48px);
+            color: #a13f65;
+            margin: 18px 0;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: clamp(27px, 6vw, 38px);
+            color: #a13f65;
+            margin: 18px 0;
+            font-weight: normal;
+        }
+
+        .deskripsi {
+            font-size: 17px;
+            line-height: 1.9;
+            margin: 20px auto 28px;
+            max-width: 470px;
+        }
+
+        button {
+            font-family: Arial, sans-serif;
+            background: #d75b87;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 23px;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 6px;
+            transition: 0.3s;
+            box-shadow: 0 6px 18px rgba(190, 72, 117, 0.18);
+        }
+
+        button:hover {
+            background: #ad3d68;
+            transform: translateY(-3px);
+        }
+
+        button.sekunder {
+            background: white;
+            color: #a13f65;
+            border: 1px solid #edc3d2;
+            box-shadow: none;
+        }
+
+        .surat {
+            text-align: left;
+            background: #fffafb;
+            padding: 28px;
+            margin-top: 25px;
+            border-radius: 18px;
+            border: 1px solid #f4d5df;
+            box-shadow: inset 0 0 25px rgba(246, 203, 219, 0.12);
+        }
+
+        .surat p {
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 20px;
+            color: #654353;
+            text-align: justify;
+        }
+
+        .surat p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tanda-tangan {
+            text-align: right;
+            font-style: italic;
+            color: #c45b80;
+            font-size: 17px;
+            margin-top: 25px;
+        }
+
+        .hiasan {
+            color: #e6a0b9;
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .catatan {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #b17a90;
+            margin-top: 25px;
+        }
+
+        .hati-melayang {
+            position: fixed;
+            bottom: -40px;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.55;
+            animation: melayang linear forwards;
+        }
+
+        .tombol {
+            margin-top: 25px;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes detak {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.13);
+            }
+        }
+
+        @keyframes melayang {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.55;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(35deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 22px;
+            }
+
+            .surat {
+                padding: 20px;
+            }
+
+            .surat p {
+                font-size: 15px;
+                line-height: 1.9;
+            }
+
+            .label {
+                letter-spacing: 2px;
+            }
+
+            button {
+                padding: 13px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================= -->
+    <!-- HALAMAN 1: TAMPILAN DEPAN          -->
+    <!-- ================================= -->
+
+    <section class="halaman aktif" id="halamanDepan">
+
+        <div class="container">
+
+            <div class="label">A little letter for you</div>
+
+            <div class="hati">💗</div>
+
+            <h1>Untuk Sayangnya akuuu</h1>
+
+            <p class="deskripsi">
+                Ada sesuatu yang pingin aku sampaiin ke kamu
+
+                <br><br>
+
+                Bukanya pelan-pelan yaa, sayang.
+                Surat kecil ini aku buat khusus untuk kamu.
+            </p>
+
+            <button onclick="bukaSurat()">
+                Buka Surat 💌
+            </button>
+
+            <div class="hiasan">♡ &nbsp; ♡ &nbsp; ♡</div>
+
+            <div class="catatan">
+                dibuat dengan penuh cinta untuk kamu
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- HALAMAN 2: ISI SURAT               -->
+    <!-- ================================= -->
+
+    <section class="halaman" id="halamanSurat">
+
+        <div class="container lebar">
+
+            <div class="label">From my heart, to you</div>
+
+            <div class="hati">💌</div>
+
+            <h2>Terima Kasih, Sayang</h2>
+
+            <p class="deskripsi">
+                Ada banyak hal yang mungkin belum bisa
+                aku sampaikan secara langsung.
+                Jadi, kali ini aku mau menyampaikannya
+                lewat surat kecil ini yaaa soalnya kalau
+                ngomong langsung aku ngga bisa pasti nangiss hehe.
+            </p>
+
+            <div class="surat">
+
+                <p>
+                    Terima kasih yaa sayang untuk segala hal
+                    yang udah kamu berikan buat aku dan effort kamu
+                    yang besar ituu. Terima kasih sudah menjadi
+                    versi terbaik kamu buat aku🥺.
+                    Semoga Allah swt membalas semua kebaikan kamu
+                    dan menjadikannya sebagai derasnya rezeki
+                    yang akan terus mengalir untuk kamu yaa sayangggg🥺❤️.
+                </p>
+
+                <p>
+                    Terima kasih yaa sayang buat setiap usaha
+                    dan kesabaran kamu yang nggak pernah kurang
+                    buat menghadapi sifat dan sikap aku yang
+                    mungkin sering bikin kamu capek.
+                    Terima kasih juga buat perhatian dan kasih
+                    sayang yang udah kamu kasih ke aku.
+                </p>
+
+                <p>
+                    Maaf yaa sayang kalau kadang aku nggak mau ngalah,
+                    kadang egois, suka tiba-tiba tantrum,
+                    dan sering ngomong kasar.
+                    Maaf ya sayang kalau masih banyak
+                    membebani kamu ini itu🥺❤️.
+                </p>
+
+                <p>
+                    Maaf ya sayang kalau selama ini aku masih
+                    kurang menghargai kamu dan memahami kamu
+                    dalam segala hal, entah pas kamu lagi cape,
+                    Aku sadar kalau aku juga masih punya banyak kekurangan 
+                    dan masih harus belajar untuk menjadi lebih baik lagi hehe.
+                </p>
+
+                <p>
+                    Aku mungkin belum selalu bisa memahami
+                    kamu dengan baik. Tapi aku mau belajar
+                    untuk lebih menghargai kamu, mendengarkan
+                    kamu, mengerti perasaan kamu, dan nggak
+                    selalu mengutamakan ego aku sendiri.
+                </p>
+
+                <p>
+                    Semangat yaa sayang buat ngebuktiin semuanya🥹💪🏻❤️.
+                    Semoga semua usaha baik kamu selalu
+                    dilancarkan, semua urusan kamu dimudahkan,
+                    dan semua hal baik yang kamu perjuangin
+                    bisa tercapai satu persatu.
+                </p>
+
+                <p>
+                    Semoga Allah selalu menjaga kamu,
+                    memberikan kamu kesehatan, melapangkan
+                    rezeki kamu, dan mengganti setiap lelah
+                    kamu dengan kebahagiaan yang indah suatu hari nanti🤲🏻🤍.
+                    Semoga setiap langkah kamu selalu diberi
+                    kemudahan dan semoga kamu selalu dikelilingi
+                    hal-hal baik. Aamiin ya Allah 🤍✨
+                </p>
+
+                 <p>
+                    Sayanggg, aku nggak minta hubungan kita
+                    selalu sempurna. Aku cuma berharap kita
+                    bisa terus saling memahami, saling menjaga,
+                    saling menguatkan, dan saling memilih
+                    meskipun nanti ada banyak hal yang harus
+                    kita lewati bareng-bareng🥹🫶🏻💞
+                    Kalau ada masalah, semoga kita selalu bisa
+                    belajar menyelesaikannya bersama yaa sayang.
+                    Aku pengen kita tetap jadi tempat pulang
+                    yang nyaman untuk satu sama lain 🏡❤️
+                </p>
+
+                <p>
+                    Sekali lagi terima kasih untuk semuanya yaa cintakuuu. 
+                    Semoga kita bisa terus bareng-bareng
+                    sampai maut yang memisahkan yaaa.
+                    Terima kasih sudah menjadi bagian dari
+                    cerita hidup aku. ❤️
+                </p>
+
+                <div class="tanda-tangan">
+                    Dengan penuh sayang,<br>
+                    untuk kamu yang aku sayang ♡
+                </div>
+
+            </div>
+
+            <div class="tombol">
+
+                <button class="sekunder" onclick="kembaliKeDepan()">
+                    ← Kembali
+                </button>
+
+                <button onclick="kePenutup()">
+                    Lanjut ke slide berikutnya ya sayangg 💞
+                </button>
+
+            </div>
+
+            <div class="catatan">
+                setiap kata ditulis dengan penuh rasa sayang
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- HALAMAN 3: PENUTUP                 -->
+    <!-- ================================= -->
+
+    <section class="halaman" id="halamanPenutup">
+
+        <div class="container">
+
+            <div class="label">One last thing...</div>
+
+            <div class="hati">❤️</div>
+
+            <h1>Untuk Kita</h1>
+
+            <p class="deskripsi">
+                Sayang, terima kasih yaa udah hadir dalam
+                hidup aku.
+
+                <br><br>
+
+                Aku tahu perjalanan kita mungkin nggak
+                selalu mudah. Tapiii akan ada hari-hari yang
+                menyenangkan dan mungkin ada juga hari
+                yang menguji kesabaran kita.
+
+                <br><br>
+
+                Tapi aku berharap, dalam keadaan apa pun,
+                kita bisa tetap saling mendengarkan,
+                saling memahami, dan saling menggenggam
+                tanpa harus saling menyakiti.
+
+                <br><br>
+
+                Semoga Allah selalu menjaga hubungan kita,
+                melancarkan rezeki kita, memudahkan semua
+                urusan kita, dan memberikan jalan terbaik
+                untuk masa depan kita yaaa🥹🫶🏻💞.
+
+                <br><br>
+
+                Aku memang belum sempurna, tapi aku mau
+                terus belajar menjadi lebih baik lagii.
+                Semoga kita bisa terus tumbuh bersama
+                dan saling memilih setiap harinya.
+
+                <br><br>
+
+                <strong>
+                    I love you sayanggg.
+                    Semoga kita selalu bersama
+                    sampai maut yang memisahkan💗
+                </strong>
+            </p>
+
+            <div class="hiasan">♡ &nbsp; ♡ &nbsp; ♡</div>
+
+            <button onclick="ulangSurat()">
+                Baca Lagi 💌
+            </button>
+
+            <div class="catatan">
+                you are loved, today and always
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- JAVASCRIPT: PINDAH HALAMAN         -->
+    <!-- ================================= -->
+
+    <script>
+
+        function tampilkanHalaman(idHalaman) {
+
+            const semuaHalaman =
+                document.querySelectorAll(".halaman");
+
+            semuaHalaman.forEach(function(halaman) {
+                halaman.classList.remove("aktif");
+            });
+
+            document.getElementById(idHalaman)
+                .classList.add("aktif");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        function bukaSurat() {
+            tampilkanHalaman("halamanSurat");
+        }
+
+
+        function kembaliKeDepan() {
+            tampilkanHalaman("halamanDepan");
+        }
+
+
+        function kePenutup() {
+            tampilkanHalaman("halamanPenutup");
+        }
+
+
+        function ulangSurat() {
+            tampilkanHalaman("halamanDepan");
+        }
+
+
+        // Membuat animasi hati yang melayang
+
+        function buatHati() {
+
+            const hati = document.createElement("div");
+
+            hati.className = "hati-melayang";
+
+            const pilihanHati = ["♡", "♥", "💕", "💗", "✧"];
+
+            hati.textContent =
+                pilihanHati[
+                    Math.floor(Math.random() * pilihanHati.length)
+                ];
+
+            hati.style.left = Math.random() * 100 + "vw";
+
+            hati.style.fontSize =
+                (15 + Math.random() * 18) + "px";
+
+            hati.style.animationDuration =
+                (7 + Math.random() * 6) + "s";
+
+            document.body.appendChild(hati);
+
+            setTimeout(function() {
+                hati.remove();
+            }, 14000);
+        }
+
+
+        setInterval(buatHati, 900);
+
+    </script>
+
+</body>
+</html>
